@@ -40,7 +40,7 @@ case "$1" in
 	;;
   restart|force-reload)
 	echo -n "Restarting searchd..."
-	start-stop-daemon --stop --quiet --retry=TERM/30/KILL/5 --pidfile $PID --exec $DAEMON
+	start-stop-daemon --stop --quiet --oknodo --retry=TERM/30/KILL/5 --pidfile $PID --exec $DAEMON
 	sleep 1
 	start-stop-daemon --start --quiet --pidfile $PID --exec $DAEMON -- --config $CONFIG
 	echo "Done."
