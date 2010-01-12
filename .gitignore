@@ -1,0 +1,3 @@
+application/configs/application.ini
+data/logs/*
+data/search-indexes/*

@@ -1,0 +1,26 @@
+[production]
+phpSettings.display_startup_errors = 0
+phpSettings.display_errors = 0
+includePaths.library = APPLICATION_PATH "/../library"
+bootstrap.path = APPLICATION_PATH "/Bootstrap.php"
+bootstrap.class = "Bootstrap"
+resources.frontController.controllerDirectory = APPLICATION_PATH "/controllers"
+
+resources.db.isDefaultTableAdapter = true
+resources.db.adapter = pdo_mysql
+resources.db.params.host = localhost
+resources.db.params.dbname = sphinx_example
+resources.db.params.username = root
+resources.db.params.password = 
+;;; 1002 = PDO::MYSQL_ATTR_INIT_COMMAND  ;;;
+resources.db.params.driver_options.1002 = "SET NAMES utf8;"
+
+[staging : production]
+
+[testing : production]
+phpSettings.display_startup_errors = 1
+phpSettings.display_errors = 1
+
+[development : production]
+phpSettings.display_startup_errors = 1
+phpSettings.display_errors = 1
