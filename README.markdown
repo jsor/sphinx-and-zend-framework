@@ -1,4 +1,4 @@
-sorgalla.com Examples
-=====================
+Sphinx and Zend Framework
+=========================
 
-This repository contains all code examples used in my [blog](http://sorgalla.com) articles.
+This repository shows the integration of [Sphinx](http://sphinxsearch.com) into a [Zend Framework](http://framework.zend.com) application.
