@@ -15,12 +15,27 @@ resources.db.params.password =
 ;;; 1002 = PDO::MYSQL_ATTR_INIT_COMMAND  ;;;
 resources.db.params.driver_options.1002 = "SET NAMES utf8;"
 
+sphinx.index.path        = APPLICATION_PATH "/../data/search-indexes/"
+sphinx.searchd.listen    = 9312
+sphinx.searchd.log       = APPLICATION_PATH "/../data/logs/sphinx-searchd.log"
+sphinx.searchd.query_log = APPLICATION_PATH "/../data/logs/sphinx-query.log"
+sphinx.searchd.pid_file  = APPLICATION_PATH "/../data/logs/sphinx-searchd.pid"
+
 [staging : production]
 
 [testing : production]
 phpSettings.display_startup_errors = 1
 phpSettings.display_errors = 1
 
+resources.db.params.dbname = sphinx_example_testing
+
+sphinx.index.path        = APPLICATION_PATH "/../data/search-indexes/testing"
+sphinx.searchd.listen    = 9313
+sphinx.searchd.log       = APPLICATION_PATH "/../data/logs/sphinx-searchd-testing.log"
+sphinx.searchd.query_log = APPLICATION_PATH "/../data/logs/sphinx-query-testing.log"
+sphinx.searchd.pid_file  = APPLICATION_PATH "/../data/logs/sphinx-searchd-testing.pid"
+
 [development : production]
 phpSettings.display_startup_errors = 1
 phpSettings.display_errors = 1
+
