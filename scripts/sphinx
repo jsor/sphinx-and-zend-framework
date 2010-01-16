@@ -13,12 +13,23 @@
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 APPLICATION_PATH=
+APPLICATION_ENV=
 DAEMON=/usr/local/bin/searchd
 INDEXER=/usr/local/bin/indexer
 
 if [ "$APPLICATION_PATH" = "" ]; then
    APPLICATION_PATH=$(readlink -f "$0" | xargs dirname | xargs dirname)/application
 fi
+
+if [ "$APPLICATION_ENV" = "" ]; then
+   if [ "$2" != "" ]; then
+        APPLICATION_ENV=$2
+    else
+        APPLICATION_ENV=production
+    fi
+fi
+
+export APPLICATION_ENV;
 
 CONFIG=$APPLICATION_PATH/configs/sphinx.conf
 PID=$(dirname $APPLICATION_PATH)/data/logs/sphinx-searchd.pid
@@ -29,31 +40,33 @@ set -e
 
 case "$1" in
     start)
-        echo -n "Starting searchd..."
+        echo -n "Starting searchd (env: $APPLICATION_ENV)..."
         start-stop-daemon --start --quiet --pidfile $PID --exec $DAEMON -- --config $CONFIG
         echo "Done."
         ;;
     stop)
-        echo -n "Stopping searchd..."
+        echo -n "Stopping searchd (env: $APPLICATION_ENV)..."
         start-stop-daemon --stop --quiet --oknodo --retry=TERM/30/KILL/5 --pidfile $PID --exec $DAEMON
         echo "Done."
         ;;
     restart|force-reload)
-        echo -n "Restarting searchd..."
+        echo -n "Restarting searchd (env: $APPLICATION_ENV)..."
         start-stop-daemon --stop --quiet --oknodo --retry=TERM/30/KILL/5 --pidfile $PID --exec $DAEMON
         sleep 1
         start-stop-daemon --start --quiet --pidfile $PID --exec $DAEMON -- --config $CONFIG
         echo "Done."
         ;;
     index-all)
+        echo "Starting indexer (env: $APPLICATION_ENV)..."
         if [ -e $PID ] ; then
             $INDEXER --config $CONFIG --all --rotate
         else
             $INDEXER --config $CONFIG --all
         fi
+        echo "Done."
         ;;
     *)
-        echo "Usage: $0 {start|stop|restart|force-reload|index-all}" >&2
+        echo "Usage: $0 start|stop|restart|force-reload|index-all [env]" >&2
         exit 1
         ;;
 esac
