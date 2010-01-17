@@ -42,7 +42,7 @@ root. The `data` directory should be writeable from PHP.
 4. Create a new database (and optionally user). Edit the 
 `application/configs/application.ini` to reflect these details.
 
-5. Import the dump from `data/sphinx_example.sql to the database.
+5. Import the dump from `data/sphinx_example.sql` to the database.
 
 6. Use `scripts/sphinx` to create the search index and start the search daemon:
     $ ./scripts/sphinx index-all
