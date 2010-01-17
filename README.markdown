@@ -14,6 +14,9 @@ This is not a production-ready application!
 Prerequisites
 -------------
 
+You must have installed [Sphinx 0.9.9+] (http://sphinxsearch.com) with [SphinxSE]
+(http://sphinxsearch.com/docs/current.html#sphinxse).
+
 The application is not packaged with the Zend Framework. Prior to use, you should
 ensure Zend Framework 1.9.7+ is available from your include_path.
 
@@ -30,8 +33,18 @@ Installation
 1. Install Zend Framework to your include_path as described above.
 
 2. Copy the application to your destination of choice and ensure any intended
-Virtual Host is pointing to the ./public directory as the Host's document
-root. The ./data directory should be writeable from PHP.
+Virtual Host is pointing to the `public` directory as the Host's document
+root. The `data` directory should be writeable from PHP.
 
-3. Copy or rename the ./application/configs/application.ini-dist to
-./application/configs/application.ini-dist and adjust the database credentials
+3. Copy or rename the `application/configs/application.ini-dist` to
+`application/configs/application.ini`.
+
+4. Create a new database (and optionally user). Edit the 
+`application/configs/application.ini` to reflect these details.
+
+5. Import the dump from `data/sphinx_example.sql to the database.
+
+6. Use `scripts/sphinx` to create the search index and start the search daemon:
+    $ ./scripts/sphinx index-all
+    $ ./scripts/sphinx start
+
