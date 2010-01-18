@@ -48,3 +48,4 @@ root. The `data` directory should be writeable from PHP.
 
     $ ./scripts/sphinx index-all
     $ ./scripts/sphinx start
+
