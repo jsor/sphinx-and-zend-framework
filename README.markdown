@@ -46,6 +46,6 @@ root. The `data` directory should be writeable from PHP.
 
 6. Use `scripts/sphinx` to create the search index and start the search daemon:
 
-    $ ./scripts/sphinx index-all
-    $ ./scripts/sphinx start
+        $ ./scripts/sphinx index-all
+        $ ./scripts/sphinx start
 
