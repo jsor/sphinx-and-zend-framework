@@ -1,9 +1,9 @@
 Sphinx and Zend Framework
 =========================
 
-This repository shows the integration of [Sphinx] (http://sphinxsearch.com) into 
+This repository shows the integration of [Sphinx] (http://sphinxsearch.com) into
 a [Zend Framework] (http://framework.zend.com) application.
-It is a reference implementation accompanying a series of posts about Sphinx and 
+It is a reference implementation accompanying a series of posts about Sphinx and
 SphinxSE on my [blog] (http://sorgalla.com).
 
 Disclaimer
@@ -20,7 +20,7 @@ You must have installed [Sphinx 0.9.9+] (http://sphinxsearch.com) with [SphinxSE
 The application is not packaged with the Zend Framework. Prior to use, you should
 ensure Zend Framework 1.9.7+ is available from your include_path.
 
-You can either copy/link it to the `libary` folder or install it via PEAR. 
+You can either copy/link it to the `libary` folder or install it via PEAR.
 The (unofficial) PEAR Channel can be found at http://pear.zfcampus.org.
 
 In line with recent Zend Framework versions, PHP 5.2.6 is the lowest supported
@@ -39,12 +39,12 @@ root. The `data` directory should be writeable from PHP.
 3. Copy or rename the `application/configs/application.ini-dist` to
 `application/configs/application.ini`.
 
-4. Create a new database (and optionally user). Edit the 
+4. Create a new database (and optionally user). Edit the
 `application/configs/application.ini` to reflect these details.
 
 5. Import the dump from `data/sphinx_example.sql` to the database.
 
 6. Use `scripts/sphinx` to create the search index and start the search daemon:
+
     $ ./scripts/sphinx index-all
     $ ./scripts/sphinx start
-
