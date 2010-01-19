@@ -4,6 +4,7 @@ phpSettings.display_errors = 0
 includePaths.library = APPLICATION_PATH "/../library"
 bootstrap.path = APPLICATION_PATH "/Bootstrap.php"
 bootstrap.class = "Bootstrap"
+autoloaderNamespaces.jsor = Jsor_
 resources.frontController.controllerDirectory = APPLICATION_PATH "/controllers"
 
 resources.db.isDefaultTableAdapter = true
