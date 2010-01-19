@@ -10,7 +10,11 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $select = $this->getInvokeArg('bootstrap')->getResource('db')->select();
+        
+        $select->from('sphinx');
+        
+        $this->view->paginator = new Jsor_Paginator(new Jsor_Paginator_Adapter_DbSelectSphinxSe($select, 'this;mode=any;sort=extended:@weight desc, @id asc;index=posts'));
     }
 
 
