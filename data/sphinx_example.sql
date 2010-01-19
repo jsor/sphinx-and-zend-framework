@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.1.37, for debian-linux-gnu (i486)
+﻿-- MySQL dump 10.13  Distrib 5.1.37, for debian-linux-gnu (i486)
 --
 -- Host: localhost    Database: sphinx_example
 -- ------------------------------------------------------
@@ -103,7 +103,7 @@ CREATE TABLE `sphinx` (
   `weight` int(11) NOT NULL,
   `query` varchar(3072) NOT NULL,
   KEY `query` (`query`(1024))
-) ENGINE=SPHINX DEFAULT CHARSET=utf8;
+) ENGINE=SPHINX DEFAULT CHARSET=utf8 CONNECTION = 'sphinx://localhost:9312';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
