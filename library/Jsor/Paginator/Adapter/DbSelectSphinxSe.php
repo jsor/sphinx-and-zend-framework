@@ -1,13 +1,9 @@
 <?php
 /**
- * Zend Framework
- *
- * LICENSE
- *
  * This source file is subject to the new BSD license that is bundled
  * with this package in the file LICENSE.
  * It is also available through the world-wide-web at this URL:
- * http://framework.zend.com/license/new-bsd
+ * http://www.opensource.org/licenses/bsd-license.php
  *
  * @category   Jsor
  * @package    Jsor_Paginator
