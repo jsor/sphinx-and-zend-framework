@@ -1,3 +1,6 @@
+nbproject
 application/configs/application.ini
 data/logs/*
+!data/logs/empty
 data/search-indexes/*
+!data/search-indexes/empty
