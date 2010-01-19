@@ -14,6 +14,7 @@ resources.db.params.username = root
 resources.db.params.password = 
 ;;; 1002 = PDO::MYSQL_ATTR_INIT_COMMAND  ;;;
 resources.db.params.driver_options.1002 = "SET NAMES utf8;"
+resources.db.params.profiler.enabled = 1
 
 sphinx.index.path        = APPLICATION_PATH "/../data/search-indexes"
 sphinx.searchd.listen    = 9312
