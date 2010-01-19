@@ -17,11 +17,6 @@
 require_once 'Zend/Paginator/Adapter/Interface.php';
 
 /**
- * @see Zend_Db
- */
-require_once 'Zend/Db.php';
-
-/**
  * @see Zend_Db_Select
  */
 require_once 'Zend/Db/Select.php';
@@ -79,7 +74,7 @@ class Jsor_Paginator_Adapter_DbSelectSphinxSe implements Zend_Paginator_Adapter_
         $from = $select->getPart(Zend_Db_Select::FROM);
         
         if (!array_key_exists($this->_sphinxTableName, $from)) {
-            throw new Zend_Paginator_Exception('Select must contain a table/alias names "' . $this->_sphinxTableName. '"');
+            throw new Zend_Paginator_Exception('Select must contain a table/alias "' . $this->_sphinxTableName. '"');
         }
     }
 
@@ -94,7 +89,8 @@ class Jsor_Paginator_Adapter_DbSelectSphinxSe implements Zend_Paginator_Adapter_
     {
         $select = clone $this->_select;
 
-        $select->where($this->_sphinxTableName . '.query = ?', $this->_sphinxQuery . ';limit=' . $itemCountPerPage . ';offset=' . $offset);
+        $col = $select->getAdapter()->quoteIdentifier($this->_sphinxTableName . '.query');
+        $select->where($col . ' = ?', $this->_sphinxQuery . ';limit=' . $itemCountPerPage . ';offset=' . $offset);
         
         if ($select instanceof Zend_Db_Table_Select) {
             $result = $select->getTable()->fetchAll($select);
