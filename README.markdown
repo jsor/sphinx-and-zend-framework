@@ -4,7 +4,7 @@ Sphinx and Zend Framework
 This repository shows the integration of [Sphinx] (http://sphinxsearch.com) into
 a [Zend Framework] (http://framework.zend.com) application.
 It is a reference implementation accompanying a series of posts about Sphinx and
-SphinxSE on my [blog] (http://sorgalla.com).
+SphinxSE on my [blog] (http://sorgalla.com/serien/schoener-suchen-mit-sphinx/).
 
 Disclaimer
 ----------
