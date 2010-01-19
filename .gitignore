@@ -4,3 +4,5 @@ data/logs/*
 !data/logs/empty
 data/search-indexes/*
 !data/search-indexes/empty
+tests/log/*
+!tests/log/report/empty
