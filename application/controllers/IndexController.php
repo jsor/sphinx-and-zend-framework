@@ -2,19 +2,33 @@
 
 class IndexController extends Zend_Controller_Action
 {
-
-    public function init()
-    {
-        /* Initialize action controller here */
-    }
-
     public function indexAction()
     {
-        $select = $this->getInvokeArg('bootstrap')->getResource('db')->select();
+        if ($this->_request->isPost()) {
+            $query = $this->_request->getPost('query');
+            if (strlen($query) > 0) {
+                $this->_helper->redirector->gotoRoute(array('query' => $query));
+            }
+        }
+
+        $query = $this->_getParam('query');
+
+        if (strlen($query) > 0) {
+            $db = $this->getInvokeArg('bootstrap')->getResource('db');
+
+            $select = $db->select()
+                ->from('posts')
+                ->join('categories', 'categories.id = posts.category_id', array('category_name' => 'name'))
+                ->join('sphinx', 'sphinx.id = posts.id', array('weight'));
+
+            $this->view->paginator = new Jsor_Paginator(new Jsor_Paginator_Adapter_DbSelectSphinxSe($select, $query . ';mode=any;sort=extended:@weight desc, @id asc;index=posts'));
+
+            $this->view->paginator
+                ->setItemCountPerPage($this->_getParam('page', 25))
+                ->setCurrentPageNumber($this->_getParam('page', 1));
         
-        $select->from('sphinx');
-        
-        $this->view->paginator = new Jsor_Paginator(new Jsor_Paginator_Adapter_DbSelectSphinxSe($select, 'this;mode=any;sort=extended:@weight desc, @id asc;index=posts'));
+            $this->view->profiler = $db->getProfiler();
+        }
     }
 
 

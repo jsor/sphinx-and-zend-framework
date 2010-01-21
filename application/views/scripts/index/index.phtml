@@ -1,15 +1,40 @@
-<pre>
-<?php foreach ($this->paginator->setItemCountPerPage(1)->setCurrentPageNumber(1) as $row): ?>
-    <?php print_r($row); ?>
-<?php endforeach; ?>
-
-<?php
-
-$profiler = Zend_Controller_Front::getInstance()->getParam('bootstrap')->getResource('db')->getProfiler();
-
-foreach ($profiler->getQueryProfiles() as $query) {
-    print_r($query->getQuery() . "\n\n");
-}
-
-?>
-</pre>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Zend Framework Default Application</title>
+</head>
+<body>
+    <h1>Post Search</h1>
+    <form action="<?= $this->escape($this->url(array(), null, true)); ?>" method="post">
+        <fieldset>
+            <legend>Search</legend>
+            <input type="text" name="query"/>
+            <input type="submit"/>
+        </fieldset>
+    </form>
+    <?php if(isset($this->paginator)): ?>
+    
+    <table summary="Search results">
+        <tr>
+            <th>Title</th
+            <th>Category</th>
+            <th>Weight</th>
+        </tr>
+        <?php foreach ($this->paginator as $row): ?>
+        <tr>
+            <td><?= $this->escape($row['title']); ?></td>
+            <td><?= $this->escape($row['category_name']); ?></td>
+            <td><?= $this->escape($row['weight']); ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    
+    <?php
+    foreach ($this->profiler->getQueryProfiles() as $query) {
+        echo '<pre>' . $query->getQuery() . "</pre>";
+    }
+    ?>
+    <?php endif ?>
+</body>
+</html>
