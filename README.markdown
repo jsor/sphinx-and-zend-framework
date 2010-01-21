@@ -49,3 +49,6 @@ root. The `data` directory should be writeable from PHP.
         $ ./scripts/sphinx index-all
         $ ./scripts/sphinx start
 
+7. Point your browser to http://your-vhost/ to see a basic example search form.
+
+
