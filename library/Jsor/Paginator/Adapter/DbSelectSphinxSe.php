@@ -41,7 +41,7 @@ class Jsor_Paginator_Adapter_DbSelectSphinxSe implements Zend_Paginator_Adapter_
      *
      * @var string
      */
-    protected $_sphinxTableName = 'sphinx';
+    protected $_sphinxTableName = null;
 
     /**
      * Database query
@@ -66,13 +66,24 @@ class Jsor_Paginator_Adapter_DbSelectSphinxSe implements Zend_Paginator_Adapter_
     {
         $this->_select      = $select;
         $this->_sphinxQuery = $sphinxQuery;
-        
+
+        $from = $select->getPart(Zend_Db_Select::FROM);
+
         if (null !== $sphinxTableName) {
             $this->_sphinxTableName = $sphinxTableName;
+        } else {
+            foreach ($from as $table => $opts) {
+                if (strpos($table, 'sphinx') !== false) {
+                    $this->_sphinxTableName = $table;
+                    break;
+                }
+            }
+
+            if (null === $this->_sphinxTableName) {
+                throw new Zend_Paginator_Exception('Could not detect sphinx table name in select');
+            }
         }
-        
-        $from = $select->getPart(Zend_Db_Select::FROM);
-        
+
         if (!array_key_exists($this->_sphinxTableName, $from)) {
             throw new Zend_Paginator_Exception('Select must contain a table/alias "' . $this->_sphinxTableName. '"');
         }
