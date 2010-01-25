@@ -110,7 +110,7 @@ class Jsor_Paginator_Adapter_DbSelectSphinxSe implements Zend_Paginator_Adapter_
         }
         
         if ($this->_rowCount === null) {        
-            $this->_rowCount = $select->getAdapter()->query("SHOW STATUS LIKE 'sphinx_total_found'")->fetchColumn(1);
+            $this->_rowCount = $select->getAdapter()->query("SHOW STATUS LIKE 'sphinx_total'")->fetchColumn(1);
         }
         
         return $result;
