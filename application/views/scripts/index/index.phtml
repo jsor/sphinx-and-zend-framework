@@ -13,15 +13,18 @@
             <input type="submit"/>
         </fieldset>
     </form>
-    <?php if(isset($this->paginator)): ?>
-    
+<?php if (isset($this->paginator)): ?>
+    <?php $items = $this->paginator->getCurrentItems(); ?>
+    <?php if (count($items) == 0): ?>
+    <p>Nothing found</p>
+    <?php else: ?>
     <table summary="Search results">
         <tr>
             <th>Title</th
             <th>Category</th>
             <th>Weight</th>
         </tr>
-        <?php foreach ($this->paginator as $row): ?>
+        <?php foreach ($items as $row): ?>
         <tr>
             <td><?= $this->escape($row['title']); ?></td>
             <td><?= $this->escape($row['category_name']); ?></td>
@@ -29,12 +32,12 @@
         </tr>
         <?php endforeach; ?>
     </table>
-    
+    <?php endif; ?>
     <?php
     foreach ($this->profiler->getQueryProfiles() as $query) {
         echo '<pre>' . $query->getQuery() . "</pre>";
     }
     ?>
-    <?php endif ?>
+<?php endif ?>
 </body>
 </html>
