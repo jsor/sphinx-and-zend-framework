@@ -8,6 +8,7 @@ class IndexController extends Zend_Controller_Action
             $query = $this->_request->getPost('query');
             if (strlen($query) > 0) {
                 $this->_helper->redirector->gotoRoute(array('query' => $query));
+                return;
             }
         }
 
