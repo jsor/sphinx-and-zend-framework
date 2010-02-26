@@ -24,7 +24,7 @@ class IndexController extends Zend_Controller_Action
             $this->view->paginator = new Jsor_Paginator(new Jsor_Paginator_Adapter_DbSelectSphinxSe($select, $query . ';mode=any;sort=extended:@weight desc, @id asc;index=posts'));
 
             $this->view->paginator
-                ->setItemCountPerPage($this->_getParam('page', 25))
+                ->setItemCountPerPage($this->_getParam('perpage', 25))
                 ->setCurrentPageNumber($this->_getParam('page', 1));
         
             $this->view->profiler = $db->getProfiler();
