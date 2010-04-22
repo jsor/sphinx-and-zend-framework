@@ -14,8 +14,8 @@ This is not a production-ready application!
 Prerequisites
 -------------
 
-You must have installed [Sphinx 0.9.9+](http://sphinxsearch.com) with [SphinxSE]
-(http://sphinxsearch.com/docs/current.html#sphinxse).
+You must have installed [Sphinx 0.9.9+](http://sphinxsearch.com) with
+[SphinxSE](http://sphinxsearch.com/docs/current.html#sphinxse).
 
 The application is not packaged with the Zend Framework. Prior to use, you should
 ensure Zend Framework 1.9.7+ is available from your include_path.
