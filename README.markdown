@@ -21,7 +21,7 @@ The application is not packaged with the Zend Framework. Prior to use, you shoul
 ensure Zend Framework 1.9.7+ is available from your include_path.
 
 You can either copy/link it to the `libary` folder or install it via PEAR.
-The (unofficial) PEAR Channel can be found at http://pear.zfcampus.org.
+The (unofficial) PEAR Channel can be found at <http://pear.zfcampus.org>.
 
 In line with recent Zend Framework versions, PHP 5.2.6 is the lowest supported
 version supported though it is strongly recommended the latest PHP version be
