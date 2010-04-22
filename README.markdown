@@ -1,10 +1,10 @@
 Sphinx and Zend Framework
 =========================
 
-This repository shows the integration of [Sphinx] (http://sphinxsearch.com) into
-a [Zend Framework] (http://framework.zend.com) application.
+This repository shows the integration of [Sphinx](http://sphinxsearch.com) into
+a [Zend Framework](http://framework.zend.com) application.
 It is a reference implementation accompanying a series of posts about Sphinx and
-SphinxSE on my [blog] (http://sorgalla.com/serien/schoener-suchen-mit-sphinx/).
+SphinxSE on my [blog](http://sorgalla.com/serien/schoener-suchen-mit-sphinx/).
 
 Disclaimer
 ----------
@@ -14,7 +14,7 @@ This is not a production-ready application!
 Prerequisites
 -------------
 
-You must have installed [Sphinx 0.9.9+] (http://sphinxsearch.com) with [SphinxSE]
+You must have installed [Sphinx 0.9.9+](http://sphinxsearch.com) with [SphinxSE]
 (http://sphinxsearch.com/docs/current.html#sphinxse).
 
 The application is not packaged with the Zend Framework. Prior to use, you should
