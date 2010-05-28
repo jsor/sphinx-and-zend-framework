@@ -6,6 +6,29 @@ a [Zend Framework](http://framework.zend.com) application.
 It is a reference implementation accompanying a series of posts about Sphinx and
 SphinxSE on my [blog](http://sorgalla.com/serien/schoener-suchen-mit-sphinx/).
 
+Features
+--------
+
+### Configuration
+
+The application contains a sample [configuration file](http://github.com/jsor/sphinx-and-zend-framework/blob/master/application/configs/sphinx.conf)
+for Sphinx. It shows that the file can be processed by a scripting language (PHP here of course)
+and utilizes Zend_Application for fetching global options (like databse credentials) from
+[application.ini](http://github.com/jsor/sphinx-and-zend-framework/blob/master/application/configs/application.conf).
+
+### Adapter for Zend_Paginator
+
+[Jsor_Paginator_Adapter_DbSelectSphinxSe}(http://github.com/jsor/sphinx-and-zend-framework/blob/master/library/Jsor/Paginator/Adapter/DbSelectSphinxSe.php)
+implements a Zend_Paginator adapter using SpinxSE.
+
+The (IndexController)[http://github.com/jsor/sphinx-and-zend-framework/blob/master/application/controllers/IndexController.php]
+shows a example usage of the adapter.
+
+### Commandline script for Sphinx
+
+The application provides a (script)[http://github.com/jsor/sphinx-and-zend-framework/blob/master/scripts/sphinx]
+for starting, stopping and restarting the Sphinx daemon and for starting the indexer.
+
 Disclaimer
 ----------
 
@@ -50,5 +73,3 @@ root. The `data` directory should be writeable from PHP.
         $ ./scripts/sphinx start
 
 7. Point your browser to http://your-vhost/ to see a basic example search form.
-
-
