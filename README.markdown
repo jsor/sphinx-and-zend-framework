@@ -18,15 +18,15 @@ and utilizes Zend_Application for fetching global options (like databse credenti
 
 ### Adapter for Zend_Paginator
 
-[Jsor_Paginator_Adapter_DbSelectSphinxSe}(http://github.com/jsor/sphinx-and-zend-framework/blob/master/library/Jsor/Paginator/Adapter/DbSelectSphinxSe.php)
+[Jsor_Paginator_Adapter_DbSelectSphinxSe](http://github.com/jsor/sphinx-and-zend-framework/blob/master/library/Jsor/Paginator/Adapter/DbSelectSphinxSe.php)
 implements a Zend_Paginator adapter using SpinxSE.
 
-The (IndexController)[http://github.com/jsor/sphinx-and-zend-framework/blob/master/application/controllers/IndexController.php]
+The [IndexController](http://github.com/jsor/sphinx-and-zend-framework/blob/master/application/controllers/IndexController.php)
 shows a example usage of the adapter.
 
 ### Commandline script for Sphinx
 
-The application provides a (script)[http://github.com/jsor/sphinx-and-zend-framework/blob/master/scripts/sphinx]
+The application provides a [script](http://github.com/jsor/sphinx-and-zend-framework/blob/master/scripts/sphinx)
 for starting, stopping and restarting the Sphinx daemon and for starting the indexer.
 
 Disclaimer
