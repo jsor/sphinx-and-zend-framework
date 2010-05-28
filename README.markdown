@@ -14,7 +14,7 @@ Features
 The application contains a sample [configuration file](http://github.com/jsor/sphinx-and-zend-framework/blob/master/application/configs/sphinx.conf)
 for Sphinx. It shows that the file can be processed by a scripting language (PHP here of course)
 and utilizes Zend_Application for fetching global options (like database credentials) from
-[application.ini](http://github.com/jsor/sphinx-and-zend-framework/blob/master/application/configs/application.conf).
+[application.ini](http://github.com/jsor/sphinx-and-zend-framework/blob/master/application/configs/application.ini-dist).
 
 ### Adapter for Zend_Paginator
 
