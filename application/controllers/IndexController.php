@@ -22,7 +22,11 @@ class IndexController extends Zend_Controller_Action
                 ->join('categories', 'categories.id = posts.category_id', array('category_name' => 'name'))
                 ->join('sphinx', 'sphinx.id = posts.id', array('weight'));
 
-            $this->view->paginator = new Jsor_Paginator(new Jsor_Paginator_Adapter_DbSelectSphinxSe($select, $query . ';mode=any;sort=extended:@weight desc, @id asc;index=posts'));
+            $sphinxQuery = $query . ';mode=any;sort=extended:@weight desc, @id asc;index=posts';
+            
+            $adapter = new Jsor_Paginator_Adapter_DbSelectSphinxSe($select, $sphinxQuery);
+
+            $this->view->paginator = new Jsor_Paginator($adapter);
 
             $this->view->paginator
                 ->setItemCountPerPage($this->_getParam('perpage', 25))
